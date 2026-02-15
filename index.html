@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Pro Downloader - Advanced Video Downloader & Clipper</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="gradient-bg"></div>
+    
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-download"></i>
+                <span>YouTube<span class="highlight">Pro</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#">Features</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h1 class="glitch" data-text="Download Any Video">Download Any Video</h1>
+            <p class="subtitle">With Intelligent Clipping Technology</p>
+        </section>
+
+        <section class="downloader-card">
+            <div class="card-glow"></div>
+            
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <i class="fas fa-link input-icon"></i>
+                    <input type="url" id="videoUrl" placeholder="Paste YouTube URL here..." class="url-input">
+                    <button class="paste-btn" onclick="pasteFromClipboard()">
+                        <i class="fas fa-paste"></i> Paste
+                    </button>
+                </div>
+            </div>
+
+            <div class="video-info" id="videoInfo" style="display: none;">
+                <img src="" alt="Video Thumbnail" id="thumbnail" class="thumbnail">
+                <div class="video-details">
+                    <h3 id="videoTitle"></h3>
+                    <p id="videoDuration"></p>
+                </div>
+            </div>
+
+            <div class="quality-section">
+                <h3><i class="fas fa-cog"></i> Quality Settings</h3>
+                <div class="quality-grid" id="qualityOptions"></div>
+            </div>
+
+            <div class="clip-section">
+                <div class="clip-header">
+                    <h3><i class="fas fa-cut"></i> Smart Clipping</h3>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="enableClipping">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <div id="clipControls" style="display: none;">
+                    <div class="time-inputs">
+                        <div class="time-field">
+                            <label>Start Time</label>
+                            <div class="time-input-group">
+                                <input type="text" id="startTime" placeholder="00:00:00" class="time-input">
+                                <span class="time-format">HH:MM:SS</span>
+                            </div>
+                        </div>
+                        <div class="time-field">
+                            <label>End Time</label>
+                            <div class="time-input-group">
+                                <input type="text" id="endTime" placeholder="00:00:00" class="time-input">
+                                <span class="time-format">HH:MM:SS</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-preview">
+                        <div class="timeline-slider">
+                            <div class="timeline-track"></div>
+                            <div class="timeline-range" id="timelineRange"></div>
+                            <div class="timeline-handle start" id="startHandle"></div>
+                            <div class="timeline-handle end" id="endHandle"></div>
+                        </div>
+                        <div class="timeline-labels">
+                            <span id="startPreview">00:00:00</span>
+                            <span id="endPreview">00:00:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-primary" onclick="processVideo()">
+                    <i class="fas fa-download"></i> Download Now
+                </button>
+                <button class="btn-secondary" onclick="previewClip()">
+                    <i class="fas fa-play"></i> Preview Clip
+                </button>
+            </div>
+
+            <div class="progress-section" id="progressSection" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">Processing...</p>
+                <div class="speed-info" id="speedInfo"></div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h4>Instant Download</h4>
+                <p>Direct download without waiting</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-cut"></i>
+                <h4>Smart Clipping</h4>
+                <p>Download only the parts you need</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-4k"></i>
+                <h4>4K Support</h4>
+                <p>Up to 4K Ultra HD quality</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/quality.js"></script>
+    <script src="js/clipper.js"></script>
+    <script src="js/downloader.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
